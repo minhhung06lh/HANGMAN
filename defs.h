@@ -67,7 +67,7 @@ const int BACK_H = 70;
 const int BUTTON_W = 115;
 const int BUTTON_H = 69;
 
-const int WORD_X = 100;
+const int WORD_X = 50;
 const int WORD_Y = 400;
 
 const int WIN_X = 50;
