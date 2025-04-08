@@ -16,21 +16,15 @@ struct Hangman{
     int x, y;
 
     string chooseWord();
-
-    void startPage();
-
-    void gameStart();
-
     void checkGuess(char letter);
-
     void result();
-
     void render();
 
+    void startPage();
+    void gameStart();
     void playGame();
+    void gameOver();
 
     bool returnToMenu();
-
-    void gameOver();
 };
 #endif // HANGMAN_H

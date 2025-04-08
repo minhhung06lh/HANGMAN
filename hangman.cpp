@@ -17,7 +17,7 @@ Graphics graphics;
 string Hangman::chooseWord(){
     string path;
     bool quit = false;
-    while (!quit){
+    while(!quit){
         SDL_PollEvent(&event);
         if(event.type == SDL_QUIT)
             quit = true;
@@ -34,6 +34,7 @@ string Hangman::chooseWord(){
             }
             quit = true;
         }
+        SDL_Delay(10);
     }
     ifstream levelFile(path);
     string tmp;
@@ -46,38 +47,6 @@ string Hangman::chooseWord(){
     srand(time(NULL));
     int randomIndex = rand() % listSize;
     return wordList[randomIndex];
-}
-
-void Hangman::startPage(){
-    graphics.loadGraphic();
-    graphics.drawMain();
-    graphics.play(graphics.gameMusic);
-    int x, y;
-    bool quit = false;
-    while (!quit){
-        SDL_PollEvent(&event);
-        if(event.type == SDL_QUIT)
-            exit(0);
-        else if(event.type == SDL_MOUSEBUTTONDOWN){
-            SDL_GetMouseState(&x, &y);
-            if(x > START_X && x < START_X + START_W && y > START_Y && y < START_Y + START_H){
-                quit = true;
-            }
-        }
-    }
-}
-
-void Hangman::gameStart(){
-    graphics.drawMenu();
-    secretWord = chooseWord();
-    guessedWord = new char[secretWord.length() + 1];
-    for (int i = 0; i < secretWord.length(); i++) {
-        guessedWord[i] = '_';
-    }
-    guessedWord[secretWord.length()] = '\0';
-    wrongGuesses = START_GUESS;
-    graphics.drawPlaying(wrongGuesses,guessedWord);
-    cout << endl << secretWord << endl;
 }
 
 void Hangman::checkGuess(char letter){
@@ -113,6 +82,39 @@ void Hangman::render(){
     graphics.drawPlaying(wrongGuesses, guessedWord);
 }
 
+void Hangman::startPage(){
+    graphics.loadGraphic();
+    graphics.drawMain();
+    graphics.play(graphics.gameMusic);
+    int x, y;
+    bool quit = false;
+    while (!quit){
+        SDL_PollEvent(&event);
+        if(event.type == SDL_QUIT)
+            exit(0);
+        else if(event.type == SDL_MOUSEBUTTONDOWN){
+            SDL_GetMouseState(&x, &y);
+            if(x > START_X && x < START_X + START_W && y > START_Y && y < START_Y + START_H){
+                quit = true;
+            }
+        }
+        SDL_Delay(10);
+    }
+}
+
+void Hangman::gameStart(){
+    graphics.drawMenu();
+    secretWord = chooseWord();
+    guessedWord = new char[secretWord.length() + 1];
+    for (int i = 0; i < secretWord.length(); i++) {
+        guessedWord[i] = '_';
+    }
+    guessedWord[secretWord.length()] = '\0';
+    wrongGuesses = START_GUESS;
+    graphics.drawPlaying(wrongGuesses,guessedWord);
+    cout << endl << secretWord << endl;
+}
+
 void Hangman::playGame(){
     do{
         while(SDL_PollEvent(&event)){
@@ -131,11 +133,17 @@ void Hangman::playGame(){
     result();
 }
 
+void Hangman::gameOver(){
+    graphics.free();
+    graphics.quit();
+    delete [] guessedWord;
+}
+
 bool Hangman::returnToMenu(){
     graphics.renderTexture(graphics.backButton, BACK_X, BACK_Y);
     graphics.presentScene();
     bool quit = false;
-    while (!quit){
+    while(!quit){
         SDL_PollEvent(&event);
         if(event.type == SDL_QUIT)
             quit = true;
@@ -146,12 +154,7 @@ bool Hangman::returnToMenu(){
                 quit = true;
             }
         }
+        SDL_Delay(10);
     }
     return false;
-}
-
-void Hangman::gameOver(){
-    graphics.free();
-    graphics.quit();
-    delete [] guessedWord;
 }

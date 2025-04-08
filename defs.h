@@ -1,5 +1,5 @@
-#ifndef _DEFS__H
-#define _DEFS__H
+#ifndef DEFS__H
+#define DEFS__H
 
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
@@ -83,4 +83,4 @@ const int BODY_Y[6] = {300, 369, 368, 371, 431, 434};
 const int TITLE_SIZE = 80;
 const int WORD_SIZE = 40;
 const int RESULT_SIZE = 70;
-#endif
+#endif //DEFS_H
