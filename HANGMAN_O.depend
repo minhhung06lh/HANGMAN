@@ -1,0 +1,40 @@
+# depslib dependency file v1.0
+1743996171 source:d:\bt_tin\hangman_o\main.cpp
+	<iostream>
+	"defs.h"
+	"hangman.h"
+	"graphics.h"
+
+1744048481 d:\bt_tin\hangman_o\graphics.h
+	<SDL_ttf.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+
+1744049239 d:\bt_tin\hangman_o\defs.h
+
+1743994776 d:\bt_tin\hangman_o\hangman.h
+	<iostream>
+	"graphics.h"
+
+1744049099 source:d:\bt_tin\hangman_o\graphics.cpp
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	"defs.h"
+	"graphics.h"
+
+1744049195 source:d:\bt_tin\hangman_o\hangman.cpp
+	<iostream>
+	<vector>
+	<cstdlib>
+	<ctime>
+	<fstream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	"defs.h"
+	"hangman.h"
+	"graphics.h"
+
