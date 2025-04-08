@@ -25,14 +25,16 @@ string Hangman::chooseWord(){
             SDL_GetMouseState(&x, &y);
             if(x > LEVEL_BUTTON_X && x < LEVEL_BUTTON_X + BUTTON_W && y > EASY_Y && y < EASY_Y + BUTTON_H){
                 path = EASY_LIST;
+                quit = true;
             }
             else if(x > LEVEL_BUTTON_X && x < LEVEL_BUTTON_X + BUTTON_W && y > MED_Y && y < MED_Y + BUTTON_H){
                 path = MEDIUM_LIST;
+                quit = true;
             }
             else if(x > LEVEL_BUTTON_X && x < LEVEL_BUTTON_X + BUTTON_W && y > HARD_Y && y < HARD_Y + BUTTON_H){
                 path = HARD_LIST;
+                quit = true;
             }
-            quit = true;
         }
         SDL_Delay(10);
     }
@@ -91,7 +93,7 @@ void Hangman::startPage(){
     while (!quit){
         SDL_PollEvent(&event);
         if(event.type == SDL_QUIT)
-            exit(0);
+            quit = true;
         else if(event.type == SDL_MOUSEBUTTONDOWN){
             SDL_GetMouseState(&x, &y);
             if(x > START_X && x < START_X + START_W && y > START_Y && y < START_Y + START_H){
