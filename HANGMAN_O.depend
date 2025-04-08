@@ -11,7 +11,7 @@
 	<SDL_image.h>
 	<SDL_mixer.h>
 
-1744085145 d:\bt_tin\hangman_o\defs.h
+1744114223 d:\bt_tin\hangman_o\defs.h
 
 1744082244 d:\bt_tin\hangman_o\hangman.h
 	<iostream>
@@ -25,7 +25,7 @@
 	"defs.h"
 	"graphics.h"
 
-1744082750 source:d:\bt_tin\hangman_o\hangman.cpp
+1744089585 source:d:\bt_tin\hangman_o\hangman.cpp
 	<iostream>
 	<vector>
 	<cstdlib>

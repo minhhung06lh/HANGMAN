@@ -74,10 +74,10 @@ const int WIN_X = 50;
 const int LOSE_X = 215;
 const int RESULT_Y = 220;
 
-const int GALLOW_X = 500;
+const int GALLOW_X = 550;
 const int GALLOW_Y = 252;
 
-const int BODY_X[6] = {461, 508, 461, 564, 484, 532};
+const int BODY_X[6] = {511, 558, 511, 614, 534, 582};
 const int BODY_Y[6] = {300, 369, 368, 371, 431, 434};
 
 const int TITLE_SIZE = 80;
