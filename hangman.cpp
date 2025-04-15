@@ -19,9 +19,7 @@ string Hangman::chooseWord(){
     bool quit = false;
     while(!quit){
         SDL_PollEvent(&event);
-        if(event.type == SDL_QUIT)
-            quit = true;
-        else if(event.type == SDL_MOUSEBUTTONDOWN){
+        if(event.type == SDL_MOUSEBUTTONDOWN){
             SDL_GetMouseState(&x, &y);
             if(x > LEVEL_BUTTON_X && x < LEVEL_BUTTON_X + BUTTON_W && y > EASY_Y && y < EASY_Y + BUTTON_H){
                 path = EASY_LIST;
@@ -92,9 +90,7 @@ void Hangman::startPage(){
     bool quit = false;
     while (!quit){
         SDL_PollEvent(&event);
-        if(event.type == SDL_QUIT)
-            quit = true;
-        else if(event.type == SDL_MOUSEBUTTONDOWN){
+        if(event.type == SDL_MOUSEBUTTONDOWN){
             SDL_GetMouseState(&x, &y);
             if(x > START_X && x < START_X + START_W && y > START_Y && y < START_Y + START_H){
                 quit = true;
